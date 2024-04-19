@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CW Face Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <div id="visorTop"></div>
+        <div id="visorSides"></div>
+        <div id="visorOuter"></div>
+        <div id="visorInner"></div>
+    </div>
+    <div id="face">
+        <input id="faceText" style="font-size: 20vmin" contenteditable oninput="textChange()" value="0˜0">
+    </div>
+
+    <div id="controls">
+        <input autocomplete="off" type="range" name="size" id="controlSize" min=20 max=40 step=4 oninput="sizeChange(this.value)"><br>
+        <div id="controlButtons">
+            <button><img src="rotate.png" ondragstart="return false" onclick="rotateChange(90)"></button>
+            <button><img src="rotate.png" style="transform: scaleX(-1)" ondragstart="return false" onclick="rotateChange(-90)"></button>
+        </div>
+        <div id="controlColors">
+            <input autocomplete="off" type="radio" class="color" name="color" color="Yellow" style="background: var(--colorYellow); border-color: var(--colorYellow)" oninput="colorChange(this)">
+            <input autocomplete="off" type="radio" class="color" name="color"  color="Orange" style="background: var(--colorOrange); border-color: var(--colorOrange)" oninput="colorChange(this)">
+            <input autocomplete="off" type="radio" class="color" name="color"  color="Red" style="background: var(--colorRed); border-color: var(--colorRed)" oninput="colorChange(this)">
+            <input autocomplete="off" type="radio" class="color" name="color"  color="Pink" style="background: var(--colorPink); border-color: var(--colorPink)" oninput="colorChange(this)">
+            <input autocomplete="off" type="radio" class="color" name="color"  color="Blue" style="background: var(--colorBlue); border-color: var(--colorBlue)" oninput="colorChange(this)">
+            <input autocomplete="off" checked type="radio" class="color" name="color"  color="Aqua" style="background: var(--colorAqua); border-color: var(--colorAqua)" oninput="colorChange(this)">
+            <input autocomplete="off" type="radio" class="color" name="color"  color="Green" style="background: var(--colorGreen); border-color: var(--colorGreen)" oninput="colorChange(this)">
+        </div>
+    </div>
+
+    <script>
+        const faceText = document.querySelector("#faceText")
+        const controlSize = document.querySelector("#controlSize")
+        const colors = document.querySelectorAll("input[type=radio]")
+
+        let data = {
+            rotation: 180,
+            size: 32,
+            color: "Aqua",
+            text: "0˜0"
+        }
+
+        faceText.style = `font-size: ${data.size}vmin`
+        faceText.value = data.text
+        document.documentElement.style.setProperty("--faceRotation", data.rotation + "deg")
+
+        function sizeChange(value){
+            data.size = value
+            faceText.style = `font-size: ${data.size}vmin`
+        }
+
+        function rotateChange(value){
+            data.rotation += value
+            data.rotation %= 360
+            document.documentElement.style.setProperty("--faceRotation", data.rotation + "deg")
+        }
+
+        function textChange(){
+            text = faceText.value.substring(0, 3)
+            faceText.value = text
+        }
+
+        function colorChange(element){
+            data.color = element.getAttribute("color")
+            faceText.parentElement.style.backgroundColor = `var(--color${data.color})`
+            for(let color of colors) color.removeAttribute("checked")
+            element.setAttribute("checked", "")
+        }
+    </script>
+</body>
+</html>

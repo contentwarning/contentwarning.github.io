@@ -1,0 +1,227 @@
+@font-face {
+    font-family: LiberationSans;
+    src: url(LiberationSans.ttf);
+}
+
+:root {
+    --faceRotation: 90deg;
+
+    --colorYellow: #F5AD00;
+    --colorOrange: #FF6D01;
+    --colorRed: #FE2614;
+    --colorPink: #FF6BE9;
+    --colorBlue: #0A94FE;
+    --colorAqua: #52E5B7;
+    --colorGreen: #72DB00;
+
+    --greyBright: #62656E;
+    --greyDark: #4F515C;
+    --greyBackground: #403F4F;
+
+    --controlBorder: #AEBAD5;
+    --controlInner: #575F89;
+}
+
+body {
+    background: var(--greyBackground);
+    overflow: hidden;
+}
+
+
+/* Face */
+
+#face {
+    background: var(--colorAqua);
+    position: absolute;
+    width: 70vmin;
+    height: 70vmin;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+#faceText {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: LiberationSans;
+    font-weight: 900;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding-bottom: 0.15em;
+    line-height: 100%;
+    box-sizing: border-box;
+    transform: translateX(-50%) translateY(-50%) rotate(var(--faceRotation));
+}
+
+
+/* Visor */
+
+#visorInner {
+    background: var(--greyBright);
+    width: 78vmin;
+    height: 78vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 50%
+}
+
+#visorOuter {
+    background: var(--greyDark);
+    width: 85vmin;
+    height: 85vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 50%;
+}
+
+#visorSides {
+    background: var(--greyBright);
+    width: 95vmin;
+    height: 20vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 5vmin;
+}
+
+#visorTop {
+    background: var(--greyBright);
+    width: 35vmin;
+    height: 50vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-92%);
+    border-radius: 5vmin;
+}
+
+/* Controls */
+@media (min-aspect-ratio: 1/1) {
+    #controls {
+        position: absolute;
+        padding: 8px;
+        box-sizing: border-box;
+        left: 75vw;
+        width: 25vw;
+    }
+
+    #controlSize {
+        appearance: none;
+        height: 30px;
+        background: var(--controlInner);
+        border: 4px solid var(--controlBorder);
+        border-radius: 20px;
+        display: block;
+        margin: 0 auto;
+        width: calc(100% - 16px);
+    }
+
+    #controlColors {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        width: 100%;
+    }
+}
+
+@media (max-aspect-ratio: 1/1) {
+    #controls {
+        position: absolute;
+        padding: 8px;
+        box-sizing: border-box;
+        width: 100vw;
+    }
+
+    #controlSize {
+        appearance: none;
+        height: 30px;
+        background: var(--controlInner);
+        border: 4px solid var(--controlBorder);
+        border-radius: 20px;
+        display: block;
+        margin: 0;
+        width: 90vw;
+    }
+
+    #controlColors {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        position: absolute;
+        top: 75vh;
+        left: 0px;
+        width: 100vw;
+    }
+}
+
+#controlSize::-webkit-slider-thumb {
+    height: 30px;
+    width: 30px;
+    background: var(--controlInner);
+    border: 4px solid var(--controlBorder);
+}
+
+#controlSize::-moz-range-thumb {
+    height: 30px;
+    width: 30px;
+    background: var(--controlBorder);
+    border: 4px solid white;
+    border-radius: 50%;
+}
+
+#controlButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 8px;
+}
+
+#controls button {
+    height: 100px;
+    width: 100px;
+    background: var(--controlInner);
+    border: 5px solid var(--controlBorder);
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 50%;
+    user-select: none;
+}
+
+#controls button img {
+    height: 100%;
+    width: 100%;
+}
+
+#controls button:active {
+    filter: brightness(90%) !important;
+}
+
+#controls button:hover {
+    filter: brightness(110%);
+}
+
+.color {
+    appearance: none;
+    border-width: 10px !important;
+    height: 90px;
+    width: 90px;
+    border: 5px solid var(--controlBorder);
+    margin: 0 auto;
+    border-radius: 50%;
+    user-select: none;
+    margin: 5px auto;
+}
+
+.color[checked] {
+    background: var(--controlInner) !important;
+}

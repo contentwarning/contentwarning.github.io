@@ -229,9 +229,8 @@ body {
 
 /* mobile */
 
-@media (pointer:none),
-(pointer:coarse) {
-    #nomboile {
+@media not all and (hover: hover) {
+    #nomobile {
         display: block !important;
         position: absolute;
         top: 0px;
@@ -239,7 +238,23 @@ body {
         width: 100vw;
         height: 100vh;
         font-family: LiberationSans;
-        color: white;
         background: var(--colorBlue);
+        color: white;
+        padding: 10px;
     }
+}
+
+#epicraisin {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    transform: rotate(180deg);
+    color: black;
+    background: var(--colorAqua);
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    padding: 0.25em;
+    box-sizing: border-box;
+    user-select: none;
 }

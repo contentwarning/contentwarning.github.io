@@ -31,7 +31,7 @@ body {
 /* Face */
 
 #face {
-    background: var(--colorAqua);
+    background: var(--colorYellow);
     position: absolute;
     width: 70vmin;
     height: 70vmin;
@@ -252,9 +252,19 @@ body {
     color: black;
     background: var(--colorAqua);
     border-radius: 50%;
+    font-weight: 900;
     width: 2em;
     height: 2em;
     padding: 0.25em;
     box-sizing: border-box;
     user-select: none;
+}
+
+
+/* vanity */
+
+#credits {
+    font-family: LiberationSans;
+    color: white;
+    font-size: 15pt;
 }

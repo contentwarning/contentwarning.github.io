@@ -14,7 +14,7 @@
         <div id="visorInner"></div>
     </div>
     <div id="face">
-        <input id="faceText" style="font-size: 20vmin" contenteditable oninput="textChange()" value="0˜0">
+        <input id="faceText" style="font-size: 20vmin" contenteditable oninput="textChange()" value=":-)">
     </div>
 
     <div id="controls">
@@ -24,15 +24,17 @@
             <button><img src="rotate.png" style="transform: scaleX(-1)" ondragstart="return false" onclick="rotateChange(-90)"></button>
         </div>
         <div id="controlColors">
-            <input autocomplete="off" type="radio" class="color" name="color" color="Yellow" style="background: var(--colorYellow); border-color: var(--colorYellow)" oninput="colorChange(this)">
+            <input autocomplete="off" checked type="radio" class="color" name="color" color="Yellow" style="background: var(--colorYellow); border-color: var(--colorYellow)" oninput="colorChange(this)">
             <input autocomplete="off" type="radio" class="color" name="color"  color="Orange" style="background: var(--colorOrange); border-color: var(--colorOrange)" oninput="colorChange(this)">
             <input autocomplete="off" type="radio" class="color" name="color"  color="Red" style="background: var(--colorRed); border-color: var(--colorRed)" oninput="colorChange(this)">
             <input autocomplete="off" type="radio" class="color" name="color"  color="Pink" style="background: var(--colorPink); border-color: var(--colorPink)" oninput="colorChange(this)">
             <input autocomplete="off" type="radio" class="color" name="color"  color="Blue" style="background: var(--colorBlue); border-color: var(--colorBlue)" oninput="colorChange(this)">
-            <input autocomplete="off" checked type="radio" class="color" name="color"  color="Aqua" style="background: var(--colorAqua); border-color: var(--colorAqua)" oninput="colorChange(this)">
+            <input autocomplete="off" type="radio" class="color" name="color"  color="Aqua" style="background: var(--colorAqua); border-color: var(--colorAqua)" oninput="colorChange(this)">
             <input autocomplete="off" type="radio" class="color" name="color"  color="Green" style="background: var(--colorGreen); border-color: var(--colorGreen)" oninput="colorChange(this)">
         </div>
     </div>
+
+    <div id="credits">Made by <span style="font-size: 12pt" id="epicraisin">0˜0</span> EpicRaisin</div>
 
     <div id="nomobile" style="display: none">
         <h1>Sorry, mobile isnt supported. I'll probably make it work later</h1>
@@ -44,10 +46,10 @@
         const colors = document.querySelectorAll("input[type=radio]")
 
         let data = {
-            rotation: 180,
+            rotation: 90,
             size: 32,
-            color: "Aqua",
-            text: "0˜0"
+            color: "Yellow",
+            text: ":-)"
         }
 
         faceText.style = `font-size: ${data.size}vmin`

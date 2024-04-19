@@ -232,7 +232,7 @@ body {
 @media not all and (hover: hover) {
     #nomobile {
         display: block !important;
-        position: absolute;
+        position: fixed;
         top: 0px;
         left: 0px;
         width: 100vw;
